@@ -176,6 +176,7 @@ We add feature function to deep learning model so that deep learning model can b
 In the original output in figure 2(a), we can see some feature spots which are the common patterns in different images but those patterns are not meaningful. After we add feature filter to the deep learning model, the model only picks features from object regions and the output shows the features of the objects, as shown in figure 2(b). 
 <p><a href="#top">Top</a></p>
 </div>
+<p><a href="#top">Top</a></p>
 </p>
 <p>
 
@@ -235,6 +236,7 @@ These trends of research in10 years indicate that technology evolves every five 
 </div>
 </div>	
 </p>
+<p><a href="#top">Top</a></p>
 <p>
 
    
@@ -396,9 +398,10 @@ We test the data modeling strategy for three times with three different news. Th
 
 </p>
 </div>
+<p><a href="#top">Top</a></p>
 </p>
 
-
+<div>
 <h3>Text Classification through Featured Transformer Model (FTM)</h3>
 <p>
 We have online news from three different websites: Facebook, GooglePlus and LinkedIn. We want to find out, for any news, if we can predict its popularity, based on the popularity of the existing news. 
@@ -414,25 +417,51 @@ This prediction model can be used for many different applications. such as
 </p>
 
 <h5>Sample Data</h5>
+</div>
+<div>
 
 
+<p><a href="#top">Top</a></p>
+</div>
 
+
+<div>
 <h3>Entity Extraction through Conditional Random Fields model (CRF)</h3>
 <p>
-We have online news from three different websites: Facebook, GooglePlus and LinkedIn. We want to find out, for any news, if we can predict its popularity, based on the popularity of the existing news. 
+In health care industry, lab test sections are normally written in free text format. With the rapid expansion of health care claims, the demands for automatically extracting lab test information from raw messages give rise to the opportunities to train computers to automatically review, extract and aggregate information to make data products. To make terms meaningful and to extract them from the text, Named Entity Recognition (NER) is one of the most used techniques.
 
-This prediction model can be used for many different applications. such as 
-<ul>
-	<li>advertising</li>
-	<li>election campaign</li>
-	<li>posts recommendation</li>
-	<li>dynamic content management</li>
-</ul>
+There are several challenges in lab entity extraction. Each test starts with test name followed by quantities, units, references, and dates. Test names are pre-defined medical terms that can be stored in a domain dictionary. Units can also be considered as a set of pre-defined terms. The test results and references have pre-defined formats that have the minimum values, the maximum values, separators, and parenthesis, for example “(1.2-2.5)”. The formats of the test dates are also pre-defined. Other than the characteristics of each individual token in test results, the format of the test section is also different from other sections. In the test section, each row is a lab test, and each column is a measurement that can be results, units, references, etc. Test results and references fields can have words in common. Also, test units and abnormal flags fields can have words in common. However, each field needs to be labeled separately. All the tests are listed together in separate lines. We want to model these characteristics of the lab sections and to extract lab entities from the doctor’s notes.
 
 </p>
 
+<div>
 <h5>Sample Data</h5>
 
+<table style="border: 1px solid black">
+	<tr><td>Raw</td><td>Lab Test Name</td><td>Value</td><td>Unit</td><td>Reference Range</td><td>Abnormal Flag</td></tr>
+	<tr><td>RBC,4.02,10E6/UL,(4.50-5.90),L</td><td>	RBC</td><td>['4.02']</td><td>['10E6/UL']</td><td>['(4.50-5.90)']</td><td>['L']</td></tr>
+	<tr><td>GRAN,0.1,10E3/UL,(0.0-0.0),H</td><td>GRAN</td><td>['0.1']</td><td>['10E3/UL']</td><td>['(0.0-0.0)']</td><td>['H']</td></tr>
+	<tr><td>BUN,22,MG/DL,(6-20),H</td><td>BUN</td><td>['22']</td><td>['MG/DL']</td><td>['(6-20)']</td><td>['H']</td></tr>
+	<tr><td>GLUCOSE,135,MG/DL,(70-110),H</td><td>GLUCOSE</td><td>['135']</td><td>['MG/DL']</td><td>['(70-110)']</td><td>['H']</td></tr>
+	<tr><td>C-REACTIVE,PROTEIN,4.7,MG/DL,(0.5-1.0),H</td><td>C-REACTIVE PROTEIN</td><td>['4.7']</td><td>['MG/DL']</td><td>['(0.5-1.0)']</td><td>['H']</td></tr>
+</table>
+</div>
+
+<div>
+<h5>Performance</h5>
+<table style="border: 1px solid black">
+	<tr><td>Evaluation</td><td>Precision</td><td>Recall</td><td>F1-score</td><td>Support Samples</td></tr>
+	<tr><td>LAB Test Name</td><td>1</td><td>1</td><td>1</td><td>27700</td></tr>
+	<tr><td>Reference Range</td><td>1</td><td>1</td><td>1</td><td>1874</td></tr>
+	<tr><td>Unit</td><td>1</td><td>1</td><td>1</td><td>884</td></tr>
+	<tr><td>Abnormal Flag</td><td>1</td><td>1</td><td>1</td><td>1915</td></tr>
+	<tr><td>Value</td><td>1</td><td>1</td><td>1</td><td>9510</td></tr>
+	<tr><td>Macro Avg</td><td>1</td><td>1</td><td>1</td><td>41883</td></tr>
+	<tr><td>Weighted Avg</td><td>1</td><td>1</td><td>1</td><td>41883</td></tr>
+</table>
+</div>
+<p><a href="#top">Top</a></p>
+</div>
 
 
 							</article>
