@@ -416,13 +416,6 @@ We propose a Featured Transformer Methodology (FTM) based on attention mechanism
 </p>
 
 <h5>Sample Data</h5>
-<ul>
-	<li>SampleWBC        8.5        x/uL        (4.5-9.8)</li>
-	<li>RBC        4.5        x/uL        (0.5-5.0)</li>
-	<li>MCV        0.5        x/uL        (0.0-5.0)</li>
-	<li>tramadol Allergy Intermediate hives</li>
-	<li>codeine Allergy Mild NAUSEA</li>
-</ul>
 <table style="border: 1px solid black">
 	<tr><td>Samples</td><td>Class</td></tr>
 	<tr><td>WBC        8.5        x/uL        (4.5-9.8)</td><td>LAB</td></tr>
@@ -434,10 +427,12 @@ We propose a Featured Transformer Methodology (FTM) based on attention mechanism
 </div>
 <div>
 <h5>Methodology</h5>
-Bidirectional Encoder Representations from Transformers (BERT) has transformer network architecture. Attention layer plays the role of aligning encoder and decoder layers. Encoder and decoder layers are built upon convolution networks instead of recurrent networks to reduce computation costs. Attention layer can be updated through Markov-like process as shown in figure 1. 
+Bidirectional Encoder Representations from Transformers (BERT) has transformer network architecture. Attention layer plays the role of aligning encoder and decoder layers. Encoder and decoder layers are built upon convolution networks instead of recurrent networks to reduce computation costs. Attention layer can be updated through Markov-like process as shown in Figure 1. 
 <br>
-<img></img>
-Figure 1 Markov Chain Updates
+<img style="margin-left:auto;margin-right:auto;" src="images/HMMUpdate.png"></img>
+<br><b>Figure 1. Markov Chain Updates</b>
+
+
 <br>
 <br>
 Connections between two sequences are presented in two-dimensional matrix in which each dimension has a sequence of tokens. The more often the connections appear, the larger the values are. Attention mechanism is a shortcut of Markov Chain in which attention layer has less heads than the previous layer. As shown in figure 2, in BERT network architecture, the importance vector of attention layer can align encoder to decoder and highly affect the final prediction. If we can properly adjust importance vector, for example, to promote positive patterns and suppress negative/random patterns, we can efficiently improve the model performance.
