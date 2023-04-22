@@ -404,22 +404,131 @@ We test the data modeling strategy for three times with three different news. Th
 <div>
 <h3>Text Classification through Featured Transformer Model (FTM)</h3>
 <p>
-We have online news from three different websites: Facebook, GooglePlus and LinkedIn. We want to find out, for any news, if we can predict its popularity, based on the popularity of the existing news. 
+Natural language is the most common ways to present information in different fields, in different perspectives and in different circumstances so that text becomes a rich source of information. However, with the development of information technology, the amount of documentation becomes impossible for human to handle. We need to take advantage of computers to help automatically understand documentation, group documentation into different categories, topics and subjects until the total amount of information is capable for human to handle.
+<br>
+<br>
+Attention mechanism is a big breakthrough in deep learning. It becomes an increasingly popular concept and a useful tool in developing deep learning models for Natural Language Processing (NLP). Because it builds a shortcut of the context for input texts and promotes correlated words in one sentence. The importance vector in the attention layer can be updated through Markov-like updates and can be customized easily in classification. The prediction can be made by estimating how strongly the word is correlated with or attends to other words.
+<br>
+<br>
+We propose a Featured Transformer Methodology (FTM) based on attention mechanism. It can efficiently add domain knowledge to deep learning architecture. The attention mechanism performs Markov-like updates. When the model converts, the associations between domain features and word embeddings can be extracted.
 
-This prediction model can be used for many different applications. such as 
-<ul>
-	<li>advertising</li>
-	<li>election campaign</li>
-	<li>posts recommendation</li>
-	<li>dynamic content management</li>
-</ul>
 
 </p>
 
 <h5>Sample Data</h5>
+<ul>
+	<li>SampleWBC        8.5        x/uL        (4.5-9.8)</li>
+	<li>RBC        4.5        x/uL        (0.5-5.0)</li>
+	<li>MCV        0.5        x/uL        (0.0-5.0)</li>
+	<li>tramadol Allergy Intermediate hives</li>
+	<li>codeine Allergy Mild NAUSEA</li>
+</ul>
+<table style="border: 1px solid black">
+	<tr><td>Samples</td><td>Class</td></tr>
+	<tr><td>WBC        8.5        x/uL        (4.5-9.8)</td><td>LAB</td></tr>
+	<tr><td>RBC        4.5        x/uL        (0.5-5.0)</td><td>LAB</td></tr>
+	<tr><td>MCV        0.5        x/uL        (0.0-5.0)</td><td>LAB</td></tr>
+	<tr><td>tramadol Allergy Intermediate hives</td><td>DOC</td></tr>
+	<tr><td>codeine Allergy Mild NAUSEA</td><td>DOC</td></tr>
+</table>
 </div>
 <div>
+<h5>Methodology</h5>
+Bidirectional Encoder Representations from Transformers (BERT) has transformer network architecture. Attention layer plays the role of aligning encoder and decoder layers. Encoder and decoder layers are built upon convolution networks instead of recurrent networks to reduce computation costs. Attention layer can be updated through Markov-like process as shown in figure 1. 
+<br>
+<img></img>
+Figure 1 Markov Chain Updates
+<br>
+<br>
+Connections between two sequences are presented in two-dimensional matrix in which each dimension has a sequence of tokens. The more often the connections appear, the larger the values are. Attention mechanism is a shortcut of Markov Chain in which attention layer has less heads than the previous layer. As shown in figure 2, in BERT network architecture, the importance vector of attention layer can align encoder to decoder and highly affect the final prediction. If we can properly adjust importance vector, for example, to promote positive patterns and suppress negative/random patterns, we can efficiently improve the model performance.
+<br>
+<br>
+We propose Featured Transformer Methodology (FTM) to improve the performance of Transformer networks, especially on BERT network architecture. The idea is that we define patterns according to the domain knowledge, add patterns as arbitrary features to the input layer and use arbitrary features to promote the importance of corresponding terms on attention layer. 
 
+</div>
+<div>
+<h5>Performance</h5>
+The model was tested with 2871 samples in which 788 samples were labeled as 'lab' and 2083 samples were labeled as 'doc'. As shown in the following table, the experimental results showed that the performance measurements, such as precision, recall, and F1-score, indicated that the model can be used to identify lab tests with 100% in all measurements. In comparison with the Conditional Random Fields (CRF) model, Bi-directional Encoder Representation Transformer (BERT), Naïve Bayes Support Vector Machine (NBSVM), Logistic Regression (LOGREG), FASTTEXT, Standard Gated Recurrent Units (STANDARD GRU), Bi-directional Gated Recurrent Units (BiGRU), Featured Transformer Methodology (FTM) can perform much better than CRF, BERT, NBSVM, LOGREG, FASTTEXT, STANDARD GRU, and BiGRU in all measurements.
+<p>
+Table 1. Performance of FTM on 2871 Samples
+<table style="border: 1px solid black">
+	<tr><td></td><td>Precision</td><td>Recall</td><td>F1-score</td></tr>
+	<tr><td>DOC</td><td>1.00</td><td>1.00</td><td>1.00</td></tr>
+	<tr><td>LAB</td><td>1.00</td><td>1.00</td><td>1.00</td></tr>
+	<tr><td>Macro Avg</td><td>1.00</td><td>1.00</td><td>1.00</td></tr>
+	<tr><td>Weighted Avg</td><td>1.00</td><td>1.00</td><td>1.00</td></tr>
+</table>
+</p>
+<p>
+Table 2. Performance of CRF on 2871 Samples
+<table style="border: 1px solid black">
+	<tr><td></td><td>Precision</td><td>Recall</td><td>F1-score</td></tr>
+	<tr><td>DOC</td><td>0.927</td><td>0.989</td><td>0.957</td></tr>
+	<tr><td>LAB</td><td>0.959</td><td>0.764</td><td>0.850</td></tr>
+	<tr><td>Macro Avg</td><td>0.943</td><td>0.876</td><td>0.904</td></tr>
+	<tr><td>Weighted Avg</td><td>0.935</td><td>0.933</td><td>0.931</td></tr>
+</table>
+</p>
+<p>
+Table 3. Performance of BERT on 2871 Samples
+<table style="border: 1px solid black">
+	<tr><td></td><td>Precision</td><td>Recall</td><td>F1-score</td></tr>
+	<tr><td>DOC</td><td>0.99</td><td>0.99</td><td>0.99</td></tr>
+	<tr><td>LAB</td><td>0.99</td><td>0.99</td><td>0.99</td></tr>
+	<tr><td>Macro Avg</td><td>0.99</td><td>0.99</td><td>0.99</td></tr>
+	<tr><td>Weighted Avg</td><td>0.99</td><td>0.99</td><td>0.99</td></tr>
+</table>
+</p>
+<p>
+Table 4. Performance of NBSVM on 2871 Samples
+<table style="border: 1px solid black">
+	<tr><td></td><td>Precision</td><td>Recall</td><td>F1-score</td></tr>
+	<tr><td>DOC</td><td>0.92</td><td>0.98</td><td>0.95</td></tr>
+	<tr><td>LAB</td><td>0.99</td><td>0.97</td><td>0.98</td></tr>
+	<tr><td>Macro Avg</td><td>0.96</td><td>0.97</td><td>0.96</td></tr>
+	<tr><td>Weighted Avg</td><td>0.97</td><td>0.97</td><td>0.97</td></tr>
+</table>
+</p>
+<p> 
+Table 5. Performance of LOGREG on 2871 Samples
+<table style="border: 1px solid black">
+	<tr><td></td><td>Precision</td><td>Recall</td><td>F1-score</td></tr>
+	<tr><td>DOC</td><td>0.92</td><td>0.96</td><td>0.94</td></tr>
+	<tr><td>LAB</td><td>0.98</td><td>0.97</td><td>0.97</td></tr>
+	<tr><td>Macro Avg</td><td>0.95</td><td>0.96</td><td>0.96</td></tr>
+	<tr><td>Weighted Avg</td><td>0.96</td><td>0.96</td><td>0.96</td></tr>
+</table>
+</p>
+<p>
+Table 6 Performance of FASTTEXT on 2871 Samples
+<table style="border: 1px solid black">
+	<tr><td></td><td>Precision</td><td>Recall</td><td>F1-score</td></tr>
+	<tr><td>DOC</td><td>0.97</td><td>0.97</td><td>0.97</td></tr>
+	<tr><td>LAB</td><td>0.99</td><td>0.99</td><td>0.99</td></tr>
+	<tr><td>Macro Avg</td><td>0.98</td><td>0.98</td><td>0.98</td></tr>
+	<tr><td>Weighted Avg</td><td>0.98</td><td>0.98</td><td>0.98</td></tr>
+</table>
+</p>
+<p>
+Table 7. Performance of STANDARD GRU on 2871 Samples
+<table style="border: 1px solid black">
+	<tr><td></td><td>Precision</td><td>Recall</td><td>F1-score</td></tr>
+	<tr><td>DOC</td><td>0.97</td><td>0.94</td><td>0.95</td></tr>
+	<tr><td>LAB</td><td>0.98</td><td>0.99</td><td>0.98</td></tr>
+	<tr><td>Macro Avg</td><td>0.97</td><td>0.96</td><td>0.97</td></tr>
+	<tr><td>Weighted Avg</td><td>0.97</td><td>0.97</td><td>0.97</td></tr>
+</table>
+</p>
+<p>
+Table 8. Performance of BiGRU on 2871 Samples
+<table style="border: 1px solid black">
+	<tr><td></td><td>Precision</td><td>Recall</td><td>F1-score</td></tr>
+	<tr><td>DOC</td><td>0.98</td><td>0.98</td><td>0.98</td></tr>
+	<tr><td>LAB</td><td>0.99</td><td>0.99</td><td>0.99</td></tr>
+	<tr><td>Macro Avg</td><td>0.99</td><td>0.99</td><td>0.99</td></tr>
+	<tr><td>Weighted Avg</td><td>0.99</td><td>0.99</td><td>0.99</td></tr>
+</table>
+</p>
 
 <p><a href="#top">Top</a></p>
 </div>
@@ -429,7 +538,8 @@ This prediction model can be used for many different applications. such as
 <h3>Entity Extraction through Conditional Random Fields model (CRF)</h3>
 <p>
 In health care industry, lab test sections are normally written in free text format. With the rapid expansion of health care claims, the demands for automatically extracting lab test information from raw messages give rise to the opportunities to train computers to automatically review, extract and aggregate information to make data products. To make terms meaningful and to extract them from the text, Named Entity Recognition (NER) is one of the most used techniques.
-
+<br>
+<br>
 There are several challenges in lab entity extraction. Each test starts with test name followed by quantities, units, references, and dates. Test names are pre-defined medical terms that can be stored in a domain dictionary. Units can also be considered as a set of pre-defined terms. The test results and references have pre-defined formats that have the minimum values, the maximum values, separators, and parenthesis, for example “(1.2-2.5)”. The formats of the test dates are also pre-defined. Other than the characteristics of each individual token in test results, the format of the test section is also different from other sections. In the test section, each row is a lab test, and each column is a measurement that can be results, units, references, etc. Test results and references fields can have words in common. Also, test units and abnormal flags fields can have words in common. However, each field needs to be labeled separately. All the tests are listed together in separate lines. We want to model these characteristics of the lab sections and to extract lab entities from the doctor’s notes.
 
 </p>
