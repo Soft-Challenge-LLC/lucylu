@@ -118,6 +118,14 @@
 								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
 
 <p><div id="top">
+	<ul>
+		<li><a href="#iamge-processing">Image Processing</a></li>
+		<li><a href="#social-graph">Social Graph Analysis</a></li>
+		<li><a href="#text-mining">Text Analysis</a></li>
+	</ul>
+</div>
+<p>
+<div id='image-processing'>
 <h2>Image Processing</h2>
 
 In image processing, we focus on edge detection and object detection. For edge detection, we use Conditional Random Fields (CRF) to improve the existing edge detection methdology. We detect all edges with closed lines and without duplicate edges. For object detection, we add arbitrary features to the objects to deep learning model to enforce deep learning model to learn the characteristics of specific objects.
@@ -176,11 +184,11 @@ We add feature function to deep learning model so that deep learning model can b
 In the original output in figure 2(a), we can see some feature spots which are the common patterns in different images but those patterns are not meaningful. After we add feature filter to the deep learning model, the model only picks features from object regions and the output shows the features of the objects, as shown in figure 2(b). 
 <p><a href="#top">Top</a></p>
 </div>
-<p><a href="#top">Top</a></p>
 </p>
+
 <p>
 
-<div>
+<div id='social-graph'>
 <h2>Social Graph Analysis</h2>
 <h3>Technology Trends</h3>
 <p>
@@ -248,7 +256,7 @@ These trends of research in10 years indicate that technology evolves every five 
     <script src="js/script.js"></script>
 </div>
 
-<div>
+<div id='text-mining'>
 
 <h2>Text Mining</h2>
 <p>
@@ -259,6 +267,9 @@ For text mining, we focus on text similarity through dimension reduction by usin
 	<li>Entity Extraction through Conditional Random Fields model (CRF)</li>
 </ul>
 </p>
+</div>
+
+<div id='online-news'>
 <h3>Online News Popularity Prediction</h3>
 <p>
 We have online news from three different websites: Facebook, GooglePlus and LinkedIn. We want to find out, for any news, if we can predict its popularity, based on the popularity of the existing news. 
@@ -272,7 +283,9 @@ This prediction model can be used for many different applications. such as
 </ul>
 
 </p>
+</div>
 
+<div>
 <h5>Sample Data</h5>
 <table style="border: 1px solid black; width:auto; height:auto;">
 	<tr><td>Dimensions</td><td>Sample 1</td><td>Sample 2</td></tr>
@@ -401,7 +414,7 @@ We test the data modeling strategy for three times with three different news. Th
 <p><a href="#top">Top</a></p>
 </p>
 
-<div>
+<div id='text-classification'>
 <h3>Text Classification through Featured Transformer Model (FTM)</h3>
 <p>
 Natural language is the most common ways to present information in different fields, in different perspectives and in different circumstances so that text becomes a rich source of information. However, with the development of information technology, the amount of documentation becomes impossible for human to handle. We need to take advantage of computers to help automatically understand documentation, group documentation into different categories, topics and subjects until the total amount of information is capable for human to handle.
@@ -529,7 +542,7 @@ Table 8. Performance of BiGRU on 2871 Samples
 </div>
 
 
-<div>
+<div id='entity-detection'>
 <h3>Entity Extraction through Conditional Random Fields model (CRF)</h3>
 <p>
 In health care industry, lab test sections are normally written in free text format. With the rapid expansion of health care claims, the demands for automatically extracting lab test information from raw messages give rise to the opportunities to train computers to automatically review, extract and aggregate information to make data products. To make terms meaningful and to extract them from the text, Named Entity Recognition (NER) is one of the most used techniques.
