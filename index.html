@@ -141,10 +141,6 @@
 <h2>Image Processing</h2>
 <p>
 	In image processing, we focus on edge detection and object detection. For edge detection, we use Conditional Random Fields (CRF) to improve the existing edge detection methdology. We detect all edges with closed lines and without duplicate edges. For object detection, we add arbitrary features to the objects to deep learning model to enforce deep learning model to learn the characteristics of specific objects.
-	<ul>
-		<li><a href="#edge-detection">Edge Detection</a></li>
-		<li><a href="#object-detection">Object Detection</a></li>
-	</ul>
 </p>
 </div>
 
@@ -203,8 +199,9 @@ Deep learning is generally used in image recognition. For example, deep learning
 <img style="margin-left:auto;margin-right:auto;"  src="images/ip-2layer-enforced.png"></img>
 <p>(b) Output from Feature Enforced Deep Learning Model</p>
 <p>Figure 3. Comparison of Features in Decision layer</p> 
-
-In the original output in figure 3(a), we can see some feature spots which are the common patterns in different images but those patterns are not meaningful. After we add feature filter to the deep learning model, the model only picks features from object regions and the output shows the features of the objects, as shown in figure 3(b). 
+<p>
+	In the original output in figure 3(a), we can see some feature spots which are the common patterns in different images but those patterns are not meaningful. After we add feature filter to the deep learning model, the model only picks features from object regions and the output shows the features of the objects, as shown in figure 3(b). 
+</p>
 <p><a href="#top">Top</a></p>
 </div>
 
@@ -458,8 +455,6 @@ We propose a Featured Transformer Methodology (FTM) based on attention mechanism
 <img style="margin-left:auto;margin-right:auto;" src="images/HMMUpdate.png"></img>
 <p><b>Figure 1. Markov Chain Updates</b></p>
 <p>
-<br>
-<br>
 Connections between two sequences are presented in two-dimensional matrix in which each dimension has a sequence of tokens. The more often the connections appear, the larger the values are. Attention mechanism is a shortcut of Markov Chain in which attention layer has less heads than the previous layer. As shown in figure 2, in BERT network architecture, the importance vector of attention layer can align encoder to decoder and highly affect the final prediction. If we can properly adjust importance vector, for example, to promote positive patterns and suppress negative/random patterns, we can efficiently improve the model performance.
 <br>
 <br>
@@ -619,8 +614,6 @@ In credit card fraud detection, data typically consists of transaction data, col
 <li>Transaction-related features: They include for example the transaction reference number, the account number, the transaction amount, the terminal (i.e., POS) number, the transaction time, etc. From the terminal, one can also obtain an additional category of information: merchant-related features such as its category code (restaurant, supermarket, …) or its location.</li>
 <li>Customer-related features: They include for example the customer number, the type of customer (low profile, high profile, …), etc.</li>
 </ul>
-<br>
-<br>
 The challenges in credit card fraud detection include class imbalance, concept drift, near real-time requirements, categorical features, sequential modeling, class overlap, performance measurements, and lack of public datasets. We provide solution to balance normal/fraud samples and evaluate the solution with Logistic Regression, Decision Tree with depth of two, Decision Tree with unlimited depth, Random Forest, and XGBoost.
 </p>
 
