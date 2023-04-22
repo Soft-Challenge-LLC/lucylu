@@ -125,7 +125,6 @@
 			  <li style="margin-left:2em; padding-bottom: 0;"><a href="#object-detection">Object Detection</a></li>
 			 </ol>
 		</li>
-		<li><a href="#social-graph">Social Graph Analysis</a></li>
 		<li><a href="#text-mining">Text Analysis</a>
 			 <ol style="list-style-type: lower-alpha; padding-bottom: 0;">
 			  <li style="margin-left:2em"><a href="#online-news">Online News Popularity Prediction</a></li>
@@ -133,6 +132,8 @@
 			  <li style="margin-left:2em"><a href="#entity-detection">Entity Extraction through Conditional Random Fields model (CRF)</a></li>
 			 </ol>
 		</li>
+		<li><a href="#social-graph">Social Graph Analysis</a></li>
+		<li><a href="#fraud-detection">Credit Card Fraud Detection</a></li>
 	</ul>
 </div>
 <p>
@@ -592,6 +593,105 @@ There are several challenges in lab entity extraction. Each test starts with tes
 <p><a href="#top">Top</a></p>
 </div>
 
+
+
+<div id='fraud-detection'>
+<h3>Credit Card Fraud Detection</h3>
+<p>
+In the banking industry, several applications are performed on a daily basis to ensure the smooth functioning of the industry. Customer profiling, risk detection, and fraud detection are some of the critical applications that are performed by banks to manage their operations efficiently and provide a secure and reliable service to their customers.
+<br>
+<br>
+Customer profiling involves collecting and analyzing data about customers to understand their needs and preferences. This information helps banks to develop personalized products and services that meet the specific needs of their customers.
+<br>
+<br>
+Risk detection involves identifying potential risks that can affect the financial health of the bank. Banks use advanced analytical techniques to identify and monitor risks related to credit, market, liquidity, operational, and reputational risks. This helps them to take proactive measures to mitigate these risks and ensure the stability of their operations.
+
+Fraud detection involves identifying and preventing fraudulent activities that can harm the bank and its customers. Banks use sophisticated fraud detection techniques to identify patterns and anomalies in customer transactions that may indicate fraudulent activities. This helps them to prevent financial losses and protect the interests of their customers.
+<br>
+<br>
+Credit card fraud detection (CCFD) is like looking for needles in a haystack. It requires finding, out of millions of daily transactions, which ones are fraudulent. Due to the ever-increasing amount of data, it is now almost impossible for a human specialist to detect meaningful patterns from transaction data. For this reason, the use of machine learning techniques is now widespread in the field of fraud detection, where information extraction from large datasets is required. 
+<br>
+<br>
+In the simplest form, a payment card transaction consists of any amount paid to a merchant by a customer at a certain time. For fraud detection, it is also generally assumed that the legitimacy of all transactions is known as either genuine or fraudulent. This is usually represented by a binary label, with a value of 0 for a genuine transaction, and a value of 1 for fraudulent transactions.
+<br>
+<br>
+In credit card fraud detection, data typically consists of transaction data, collected, for example, by a payment processor or a bank. Transaction data can be divided into three groups:
+<ul>
+<li>Account-related features: They include for example the account number, the date of the account opening, the card limit, the card expiry date, etc.</li>
+<li>Transaction-related features: They include for example the transaction reference number, the account number, the transaction amount, the terminal (i.e., POS) number, the transaction time, etc. From the terminal, one can also obtain an additional category of information: merchant-related features such as its category code (restaurant, supermarket, …) or its location.</li>
+<li>Customer-related features: They include for example the customer number, the type of customer (low profile, high profile, …), etc.</li>
+</ul>
+<br>
+<br>
+The challenges in credit card fraud detection include class imbalance, concept drift, near real-time requirements, categorical features, sequential modeling, class overlap, performance measurements, and lack of public datasets. We provide solution to balance normal/fraud samples and evaluate the solution with Logistic Regression, Decision Tree with depth of two, Decision Tree with unlimited depth, Random Forest, and XGBoost.
+
+</p>
+</div>
+<div>
+<h5>Sample Data</h5>
+'TX_AMOUNT','TX_DURING_WEEKEND', 'TX_DURING_NIGHT', 'CUSTOMER_ID_NB_TX_1DAY_WINDOW',
+       'CUSTOMER_ID_AVG_AMOUNT_1DAY_WINDOW', 'CUSTOMER_ID_NB_TX_7DAY_WINDOW',
+       'CUSTOMER_ID_AVG_AMOUNT_7DAY_WINDOW', 'CUSTOMER_ID_NB_TX_30DAY_WINDOW',
+       'CUSTOMER_ID_AVG_AMOUNT_30DAY_WINDOW', 'TERMINAL_ID_NB_TX_1DAY_WINDOW',
+       'TERMINAL_ID_RISK_1DAY_WINDOW', 'TERMINAL_ID_NB_TX_7DAY_WINDOW',
+       'TERMINAL_ID_RISK_7DAY_WINDOW', 'TERMINAL_ID_NB_TX_30DAY_WINDOW',
+       'TERMINAL_ID_RISK_30DAY_WINDOW'
+<table style="border: 1px solid black">
+	<tr><td>Features</td><td>Values</td></tr>
+	<tr><td>TX_AMOUNT</td><td>57.12</td></tr>
+	<tr><td>TX_DURING_WEEKEND</td><td>1.0</td></tr>
+	<tr><td>TX_DURING_NIGHT</td><td>1.0</td></tr>
+	<tr><td>CUSTOMER_ID_NB_TX_1DAY_WINDOW</td><td>1.0</td></tr>
+	<tr><td>CUSTOMER_ID_AVG_AMOUNT_1DAY_WINDOW</td><td>57.12</td></tr>
+	<tr><td>CUSTOMER_ID_NB_TX_7DAY_WINDOW</td><td>1.0</td></tr>
+	<tr><td>CUSTOMER_ID_AVG_AMOUNT_7DAY_WINDOW</td><td>57.12</td></tr>
+	<tr><td>CUSTOMER_ID_NB_TX_30DAY_WINDOW</td><td>1.0</td></tr>
+	<tr><td>CUSTOMER_ID_AVG_AMOUNT_30DAY_WINDOW</td><td>57.12</td></tr>
+	<tr><td>TERMINAL_ID_NB_TX_1DAY_WINDOW</td><td>0.0</td></tr>
+	<tr><td>TERMINAL_ID_RISK_1DAY_WINDOW</td><td>0.0</td></tr>
+	<tr><td>TERMINAL_ID_NB_TX_7DAY_WINDOW</td><td>0</td></tr>
+	<tr><td>TERMINAL_ID_RISK_7DAY_WINDOW</td><td>0.0</td></tr>
+	<tr><td>TERMINAL_ID_NB_TX_30DAY_WINDOW</td><td>0.0</td></tr>
+	<tr><td>TERMINAL_ID_RISK_30DAY_WINDOW</td><td>0.0</td></tr>
+	<tr><td>TX_FRAUD</td><td>1</td></tr>
+</table>
+</div>
+
+<div>
+<h5>Performance</h5>
+<table style="border: 1px solid black">
+	<tr><td>Evaluation</td><td>Precision</td><td>Recall</td><td>F1-score</td><td>Support Samples</td></tr>
+	<tr><td>LAB Test Name</td><td>1</td><td>1</td><td>1</td><td>27700</td></tr>
+	<tr><td>Reference Range</td><td>1</td><td>1</td><td>1</td><td>1874</td></tr>
+	<tr><td>Unit</td><td>1</td><td>1</td><td>1</td><td>884</td></tr>
+	<tr><td>Abnormal Flag</td><td>1</td><td>1</td><td>1</td><td>1915</td></tr>
+	<tr><td>Value</td><td>1</td><td>1</td><td>1</td><td>9510</td></tr>
+	<tr><td>Macro Avg</td><td>1</td><td>1</td><td>1</td><td>41883</td></tr>
+	<tr><td>Weighted Avg</td><td>1</td><td>1</td><td>1</td><td>41883</td></tr>
+</table>
+</div>
+
+AUC ROC	Average precision	Card Precision@100
+Logistic regression	0.891	0.657	0.128
+Decision tree with depth of two	0.801	0.511	0.119
+Decision tree - unlimited depth	0.970	0.870	0.144
+Random forest	0.981	0.954	0.145
+XGBoost	0.949	0.810	0.134
+
+<div>
+<h5>Performance</h5>
+<table style="border: 1px solid black">
+	<tr><td></td><td>AUC ROC</td><td>Average Precision</td><td>Card Precision@100</td></tr>
+	<tr><td>Logistic Regression</td><td>0.644</td><td>0.126</td><td>0.181</td></tr>
+	<tr><td>Decision Tree with Depth=2</td><td>0.829</td><td>0.246</td><td>0.215</td></tr>
+	<tr><td>Decision Tree with Unlimited Depth</td><td>0.915</td><td>0.576</td><td>0.222</td></tr>
+	<tr><td>Random Forest</td><td>0.991</td><td>0.944</td><td>0.223</td></tr>
+	<tr><td>XGBoost</td><td>0.949</td><td>0.810</td><td>0.134</td></tr>
+</table>
+</div>
+
+<p><a href="#top">Top</a></p>
+</div>
 
 							</article>
 
